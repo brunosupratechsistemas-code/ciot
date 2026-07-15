@@ -1,0 +1,1147 @@
+<html>
+<div class="supra-ciot-blog">
+  <style>
+    .supra-ciot-blog {
+      --supra-primary: #6c43d0;
+--supra-primary-dark: #5632b2;
+--supra-secondary: #8a63e8;
+--supra-accent: #b399f8;
+--supra-success: #147a55;
+--supra-warning: #a76200;
+--supra-text: #000000;
+--supra-muted: #6d647c;
+--supra-border: #e3daf8;
+--supra-bg: #faf7ff;
+--supra-white: #ffffff;
+--supra-shadow: 0 18px 50px rgba(108, 67, 208, 0.12);
+      color: var(--supra-text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.72;
+      background: var(--supra-white);
+      overflow: hidden;
+    }
+
+    .supra-ciot-blog *,
+    .supra-ciot-blog *::before,
+    .supra-ciot-blog *::after {
+      box-sizing: border-box;
+    }
+
+    .supra-ciot-blog img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .supra-ciot-blog a {
+      color: inherit;
+    }
+
+    .supra-ciot-container {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .supra-ciot-section {
+      padding: 76px 0;
+    }
+
+    .supra-ciot-section--soft {
+      background: var(--supra-bg);
+    }
+
+    .supra-ciot-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 7px 13px;
+      border: 1px solid rgba(53, 25, 210, 0.22);
+      border-radius: 999px;
+      border: 1px solid rgba(108, 67, 208, 0.22);
+background: rgba(108, 67, 208, 0.08);      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .supra-ciot-title,
+    .supra-ciot-heading,
+    .supra-ciot-subheading {
+      color: var(--supra-text);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.13;
+    }
+
+    .supra-ciot-title {
+      max-width: 780px;
+      margin: 0 0 24px;
+      font-size: clamp(38px, 5vw, 68px);
+    }
+
+    .supra-ciot-heading {
+      margin: 0 0 22px;
+      font-size: clamp(30px, 4vw, 46px);
+    }
+
+    .supra-ciot-subheading {
+      margin: 0 0 12px;
+      font-size: 23px;
+    }
+
+    .supra-ciot-lead {
+      max-width: 760px;
+      margin: 0;
+      color: var(--supra-muted);
+      font-size: clamp(18px, 2vw, 22px);
+    }
+
+    .supra-ciot-copy p {
+      margin: 0 0 20px;
+    }
+
+    .supra-ciot-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .supra-ciot-hero {
+      position: relative;
+      padding: 96px 0 82px;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(255, 204, 0, 0.24), transparent 26%),
+        radial-gradient(circle at 92% 18%, rgba(25, 118, 210, 0.22), transparent 33%),
+        linear-gradient(145deg, #ffffff 0%, #f4f9ff 58%, #eaf3ff 100%);
+    }
+
+    .supra-ciot-hero::after {
+      content: "";
+      position: absolute;
+      right: -130px;
+      bottom: -180px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(89, 0, 255, 0.16);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 40px rgba(25, 118, 210, 0.035),
+        0 0 0 85px rgba(25, 118, 210, 0.025);
+      pointer-events: none;
+    }
+
+    .supra-ciot-hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+      gap: 58px;
+      align-items: center;
+    }
+
+    .supra-ciot-highlight {
+      color: var(--supra-primary);
+    }
+
+    .supra-ciot-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .supra-ciot-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 14px;
+      border: 1px solid var(--supra-border);
+      border-radius: 12px;
+      color: var(--supra-primary-dark);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 8px 24px rgba(28, 9, 113, 0.06);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .supra-ciot-icon {
+      display: inline-grid;
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--supra-primary);
+      background: #eaf3ff;
+    }
+
+    .supra-ciot-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+    }
+
+    .supra-ciot-image-placeholder {
+      position: relative;
+      display: grid;
+      min-height: 420px;
+      padding: 30px;
+      place-items: center;
+      overflow: hidden;
+      border: 2px dashed #b09fec;
+      border-radius: 26px;
+      color: var(--supra-primary);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(231, 242, 255, 0.9)),
+        repeating-linear-gradient(45deg, transparent 0 15px, rgba(25, 118, 210, 0.04) 15px 30px);
+      box-shadow: var(--supra-shadow);
+      text-align: center;
+    }
+
+    .supra-ciot-image-placeholder strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 21px;
+    }
+
+    .supra-ciot-image-placeholder span {
+      display: block;
+      max-width: 330px;
+      color: var(--supra-muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .supra-ciot-image-placeholder svg {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 16px;
+      stroke: currentColor;
+    }
+
+    .supra-ciot-real-image {
+      width: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      border-radius: 26px;
+      box-shadow: var(--supra-shadow);
+    }
+
+    .supra-ciot-intro-grid,
+    .supra-ciot-two-columns,
+    .supra-ciot-media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 54px;
+      align-items: center;
+    }
+
+    .supra-ciot-info-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 20px;
+      margin: 26px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .supra-ciot-info-list li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--supra-text);
+      font-weight: 700;
+    }
+
+    .supra-ciot-info-list li::before {
+      content: "✓";
+      position: absolute;
+      top: 1px;
+      left: 0;
+      display: grid;
+      width: 19px;
+      height: 19px;
+      place-items: center;
+      border-radius: 50%;
+      color: #ffffff;
+      background: var(--supra-secondary);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .supra-ciot-note {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--supra-accent);
+      border-radius: 0 14px 14px 0;
+      color: #594400;
+      background: #fff9dd;
+      font-size: 15px;
+    }
+
+    .supra-ciot-note strong {
+      color: #3f3100;
+    }
+
+    .supra-ciot-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 38px;
+    }
+
+    .supra-ciot-card {
+      height: 100%;
+      padding: 24px;
+      border: 1px solid var(--supra-border);
+      border-radius: 18px;
+      background: var(--supra-white);
+      box-shadow: 0 12px 36px rgba(16, 9, 113, 0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .supra-ciot-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 44px rgba(9, 55, 113, 0.13);
+    }
+
+    .supra-ciot-card p {
+      margin: 0;
+      color: var(--supra-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .supra-ciot-card .supra-ciot-icon {
+      margin-bottom: 18px;
+    }
+
+    .supra-ciot-steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+      counter-reset: supra-step;
+    }
+
+    .supra-ciot-step {
+      position: relative;
+      min-height: 190px;
+      padding: 66px 20px 22px;
+      border: 1px solid var(--supra-border);
+      border-radius: 18px;
+      background: var(--supra-white);
+      text-align: center;
+      counter-increment: supra-step;
+    }
+
+    .supra-ciot-step::before {
+      content: counter(supra-step);
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      color: #ffffff;
+      background: var(--supra-primary);
+      font-weight: 900;
+    }
+
+    .supra-ciot-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -17px;
+      z-index: 2;
+      width: 34px;
+      transform: translateY(-50%);
+      color: var(--supra-secondary);
+      background: var(--supra-bg);
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .supra-ciot-step strong {
+      display: block;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .supra-ciot-step span {
+      display: block;
+      color: var(--supra-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .supra-ciot-panel {
+      height: 100%;
+      padding: 30px;
+      border: 1px solid var(--supra-border);
+      border-radius: 22px;
+      background: var(--supra-white);
+      box-shadow: 0 12px 38px rgba(25, 9, 113, 0.08);
+    }
+
+    .supra-ciot-panel--green {
+      border-color: #cfe9da;
+      background: linear-gradient(145deg, #ffffff, #eefaf3);
+    }
+
+    .supra-ciot-panel--yellow {
+      border-color: #f0dda0;
+      background: linear-gradient(145deg, #ffffff, #fff9e6);
+    }
+
+    .supra-ciot-panel--blue {
+      border-color: #d4cbf6;
+      background: linear-gradient(145deg, #ffffff, #f1eeff);
+    }
+
+    .supra-ciot-panel p {
+      margin: 0 0 16px;
+      color: var(--supra-muted);
+    }
+
+    .supra-ciot-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .supra-ciot-three-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .supra-ciot-picture-box {
+      margin: 36px 0 0;
+    }
+
+    .supra-ciot-picture-box figcaption {
+      margin-top: 12px;
+      color: var(--supra-muted);
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .supra-ciot-video-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 18px;
+      background: #090728;
+      box-shadow: var(--supra-shadow);
+    }
+
+    .supra-ciot-video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .supra-ciot-manual-card {
+      padding: 36px;
+      border: 1px solid var(--supra-border);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 100% 0, rgba(37, 25, 210, 0.18), transparent 34%),
+        #ffffff;
+      box-shadow: var(--supra-shadow);
+    }
+
+    .supra-ciot-manual-card p {
+      color: var(--supra-muted);
+    }
+
+    .supra-ciot-button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .supra-ciot-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 13px 22px;
+      border: 2px solid var(--supra-primary);
+      border-radius: 11px;
+      color: #ffffff !important;
+      background: var(--supra-primary);
+      font-weight: 800;
+      line-height: 1.2;
+      text-decoration: none !important;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .supra-ciot-button:hover {
+      transform: translateY(-2px);
+      background: var(--supra-primary-dark);
+      box-shadow: 0 10px 24px rgba(11, 77, 162, 0.22);
+    }
+
+    .supra-ciot-button--outline {
+      color: var(--supra-primary) !important;
+      background: transparent;
+    }
+
+    .supra-ciot-button--outline:hover {
+      color: #ffffff !important;
+      background: var(--supra-primary);
+    }
+
+    .supra-ciot-faq {
+      display: grid;
+      gap: 13px;
+      max-width: 920px;
+      margin: 38px auto 0;
+    }
+
+    .supra-ciot-faq details {
+      overflow: hidden;
+      border: 1px solid var(--supra-border);
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .supra-ciot-faq summary {
+      position: relative;
+      padding: 20px 58px 20px 22px;
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .supra-ciot-faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .supra-ciot-faq summary::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 21px;
+      transform: translateY(-50%);
+      color: var(--supra-primary);
+      font-size: 28px;
+      font-weight: 400;
+    }
+
+    .supra-ciot-faq details[open] summary::after {
+      content: "−";
+    }
+
+    .supra-ciot-faq-answer {
+      padding: 0 22px 21px;
+      color: var(--supra-muted);
+    }
+
+    .supra-ciot-cta {
+      padding: 46px;
+      border-radius: 26px;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 90% 20%, rgba(44, 25, 210, 0.85), transparent 34%),
+        linear-gradient(135deg, #120649, #1a0ba2);
+      box-shadow: 0 24px 60px rgba(6, 31, 73, 0.25);
+    }
+
+    .supra-ciot-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .supra-ciot-cta h2 {
+      margin: 0 0 12px;
+      color: #ffffff;
+      font-size: clamp(29px, 4vw, 46px);
+      line-height: 1.12;
+    }
+
+    .supra-ciot-cta p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .supra-ciot-cta .supra-ciot-button {
+      border-color: var(--supra-accent);
+      color: #1a183a !important;
+      background: var(--supra-accent);
+      white-space: nowrap;
+    }
+
+    .supra-ciot-cta .supra-ciot-button:hover {
+      background: #f4bf00;
+    }
+
+    .supra-ciot-source {
+      margin-top: 24px;
+      color: var(--supra-muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .supra-ciot-source a {
+      color: var(--supra-primary);
+      font-weight: 700;
+    }
+
+    @media (max-width: 1040px) {
+      .supra-ciot-hero-grid,
+      .supra-ciot-intro-grid,
+      .supra-ciot-two-columns,
+      .supra-ciot-media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .supra-ciot-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .supra-ciot-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .supra-ciot-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .supra-ciot-three-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .supra-ciot-image-placeholder,
+      .supra-ciot-real-image {
+        min-height: 330px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .supra-ciot-blog {
+        font-size: 16px;
+      }
+
+      .supra-ciot-container {
+        width: min(100% - 24px, 1180px);
+      }
+
+      .supra-ciot-section {
+        padding: 54px 0;
+      }
+
+      .supra-ciot-hero {
+        padding: 68px 0 58px;
+      }
+
+      .supra-ciot-info-list,
+      .supra-ciot-cards,
+      .supra-ciot-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .supra-ciot-card,
+      .supra-ciot-panel,
+      .supra-ciot-manual-card {
+        padding: 22px;
+      }
+
+      .supra-ciot-image-placeholder,
+      .supra-ciot-real-image {
+        min-height: 270px;
+        border-radius: 18px;
+      }
+
+      .supra-ciot-cta {
+        padding: 30px 24px;
+      }
+
+      .supra-ciot-cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .supra-ciot-button-row,
+      .supra-ciot-button {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <!-- HERO -->
+  <header class="supra-ciot-hero">
+    <div class="supra-ciot-container supra-ciot-hero-grid">
+      <div>
+        <span class="supra-ciot-eyebrow">Atualização para transportadoras</span>
+
+        <h1 class="supra-ciot-title">
+          Os sistemas SupraTech já estão preparados para a
+          <span class="supra-ciot-highlight">emissão de CIOT</span>
+        </h1>
+
+        <p class="supra-ciot-lead">
+          Mais agilidade, segurança e integração para manter a operação de transporte
+          rodoviário de cargas em conformidade com as exigências aplicáveis.
+        </p>
+
+        <div class="supra-ciot-badges" aria-label="Benefícios da integração">
+          <span class="supra-ciot-badge">✓ Conformidade operacional</span>
+          <span class="supra-ciot-badge">✓ Emissão integrada</span>
+          <span class="supra-ciot-badge">✓ Menos preenchimento manual</span>
+        </div>
+      </div>
+
+     
+
+      <img
+        class="supra-ciot-real-image"
+        src="https://supratechsistemas.com.br/wp-content/uploads/2026/07/trucking-logistics-fleet-management-technology-scaled.jpg"
+        alt="Sistema SupraTech preparado para emissão de CIOT"
+        width="900"
+        height="650"
+        loading="eager">
+      
+    </div>
+  </header>
+
+  <!-- O QUE E CIOT -->
+  <section class="supra-ciot-section">
+    <div class="supra-ciot-container supra-ciot-intro-grid">
+      <div class="supra-ciot-copy">
+        <span class="supra-ciot-eyebrow">Entenda o conceito</span>
+        <h2 class="supra-ciot-heading">O que é o CIOT?</h2>
+
+        <p>
+          O <strong>CIOT — Código Identificador da Operação de Transporte</strong> — é o registro
+          utilizado para identificar uma operação de transporte rodoviário remunerado de cargas
+          perante a Agência Nacional de Transportes Terrestres (ANTT), quando aplicável.
+        </p>
+
+        <p>O código reúne informações essenciais da contratação, como:</p>
+
+        <ul class="supra-ciot-info-list">
+          <li>Contratante do frete</li>
+          <li>Transportador</li>
+          <li>Origem e destino</li>
+          <li>Valor do frete</li>
+          <li>Veículos utilizados</li>
+          <li>Dados da operação</li>
+        </ul>
+
+        <p>
+          Além de ampliar a rastreabilidade da operação, o processo auxilia no cumprimento das
+          regras de pagamento do frete e das exigências relacionadas ao piso mínimo, conforme o
+          enquadramento de cada contratação.
+        </p>
+      </div>
+
+      <div class="supra-ciot-panel supra-ciot-panel--blue">
+        <span class="supra-ciot-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+            <path d="M6 2h9l5 5v15H6z"></path>
+            <path d="M14 2v6h6"></path>
+            <path d="M9 13h6M9 17h6"></path>
+          </svg>
+        </span>
+        <h3 class="supra-ciot-subheading">Mais controle para toda a operação</h3>
+        <p>
+          Com os dados centralizados no sistema, a transportadora reduz inconsistências,
+          mantém o histórico das operações e facilita a vinculação do código aos documentos fiscais.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUDANCAS 2026 -->
+  <section class="supra-ciot-section supra-ciot-section--soft">
+    <div class="supra-ciot-container supra-ciot-two-columns">
+      <div>
+       <img
+        class="supra-ciot-real-image"
+        src="https://supratechsistemas.com.br/wp-content/uploads/2026/07/full-shot-men-wearing-protection-equipment.jpg"
+        alt="Sistema SupraTech preparado para emissão de CIOT"
+        width="900"
+        height="650"
+        loading="eager">
+      </div>
+      <div class="supra-ciot-copy">
+        <span class="supra-ciot-eyebrow">Atualizações de 2026</span>
+        <h2 class="supra-ciot-heading">O que mudou?</h2>
+
+        <p>
+          Em 2026, novas validações relacionadas ao CIOT passaram a ter impacto direto na emissão
+          do MDF-e nas operações em que o código é exigido. Nesses casos, a ausência ou a informação
+          incorreta pode impedir a autorização do documento e atrasar o início da viagem.
+        </p>
+
+        <p>
+          Por isso, utilizar uma plataforma que importe os dados da operação, faça as validações
+          necessárias e vincule o CIOT ao MDF-e reduz retrabalho e aumenta a segurança operacional.
+        </p>
+
+        <div class="supra-ciot-note">
+          <strong>Importante:</strong> a obrigatoriedade depende do tipo de contratação, das partes
+          envolvidas e das regras vigentes para a operação. Antes da publicação, revise a data exata
+          de início das validações e a abrangência com o departamento fiscal/jurídico da SupraTech.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+  <section class="supra-ciot-section">
+    <div class="supra-ciot-container">
+      <span class="supra-ciot-eyebrow">Integração completa</span>
+      <h2 class="supra-ciot-heading">A SupraTech já está pronta</h2>
+      <p class="supra-ciot-lead">
+        A emissão acontece de forma integrada ao fluxo operacional da transportadora,
+        aproveitando informações que já existem no CT-e e no MDF-e.
+      </p>
+
+      <div class="supra-ciot-cards">
+        <article class="supra-ciot-card">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M5 3h10l4 4v14H5z"></path><path d="M14 3v5h5"></path><path d="m8 15 2 2 5-5"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Emissão de CIOT</h3>
+          <p>Gere o código diretamente no fluxo do sistema, sem redigitar toda a operação.</p>
+        </article>
+
+        <article class="supra-ciot-card">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.2"></path>
+              <path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.2-1.2"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">CT-e e MDF-e integrados</h3>
+          <p>Reaproveite os dados fiscais e vincule o CIOT ao MDF-e da operação.</p>
+        </article>
+
+        <article class="supra-ciot-card">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v6h6"></path><path d="M12 7v5l3 2"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Importação automática</h3>
+          <p>Busque contratantes, tomadores e demais informações já vinculadas aos documentos.</p>
+        </article>
+
+        <article class="supra-ciot-card">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <rect x="4" y="2" width="16" height="20" rx="2"></rect><path d="M8 6h8M8 10h2M14 10h2M8 14h2M14 14h2M8 18h8"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Piso mínimo</h3>
+          <p>Realize o cálculo e as validações conforme as regras aplicáveis à operação.</p>
+        </article>
+
+        <article class="supra-ciot-card">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Busca de contratantes</h3>
+          <p>Localize automaticamente os envolvidos vinculados aos CT-es selecionados.</p>
+        </article>
+
+        <article class="supra-ciot-card">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Geração rápida</h3>
+          <p>Conclua a emissão em poucos cliques, dentro da rotina que sua equipe já utiliza.</p>
+        </article>
+
+        <article class="supra-ciot-card">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M8 12h8"></path><path d="M12 8v8"></path><circle cx="12" cy="12" r="9"></circle>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Código externo</h3>
+          <p>Informe um CIOT emitido por outra plataforma autorizada e vincule-o ao MDF-e.</p>
+        </article>
+
+        <article class="supra-ciot-card">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Acompanhamento</h3>
+          <p>Consulte, acompanhe e gerencie as operações de transporte em um só lugar.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLUXO -->
+  <section class="supra-ciot-section supra-ciot-section--soft">
+    <div class="supra-ciot-container">
+      <span class="supra-ciot-eyebrow">Fluxo automatizado</span>
+      <h2 class="supra-ciot-heading">Mais agilidade para sua operação</h2>
+      <p class="supra-ciot-lead">
+        Ao iniciar a emissão do MDF-e, o sistema organiza as informações necessárias para reduzir
+        etapas manuais e tornar o processo mais seguro.
+      </p>
+
+      <div class="supra-ciot-steps">
+        <div class="supra-ciot-step">
+          <strong>Identifica os envolvidos</strong>
+          <span>Localiza tomadores e contratantes associados à operação.</span>
+        </div>
+        <div class="supra-ciot-step">
+          <strong>Importa os CT-es</strong>
+          <span>Reaproveita as informações fiscais já cadastradas.</span>
+        </div>
+        <div class="supra-ciot-step">
+          <strong>Organiza os dados</strong>
+          <span>Centraliza origem, destino, valores, veículos e demais campos.</span>
+        </div>
+        <div class="supra-ciot-step">
+          <strong>Executa validações</strong>
+          <span>Verifica os requisitos aplicáveis antes da emissão.</span>
+        </div>
+        <div class="supra-ciot-step">
+          <strong>Gera e vincula</strong>
+          <span>Emite o CIOT e associa o código ao MDF-e.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENARIOS -->
+  <section class="supra-ciot-section">
+    <div class="supra-ciot-container">
+      <div class="supra-ciot-three-columns">
+        <article class="supra-ciot-panel supra-ciot-panel--green">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M12 2v20M2 12h20"></path><circle cx="12" cy="12" r="9"></circle>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Integração com provedores</h3>
+          <p>
+            A plataforma pode trabalhar com provedores autorizados e integrados ao ecossistema da
+            SupraTech, como a Extratta, conforme a configuração contratada pela empresa.
+          </p>
+        </article>
+
+        <article class="supra-ciot-panel supra-ciot-panel--yellow">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Segurança e conformidade</h3>
+          <p>
+            As validações ajudam a reduzir erros de preenchimento, rejeições e riscos de iniciar uma
+            viagem sem os dados obrigatórios para aquela operação.
+          </p>
+        </article>
+
+        <article class="supra-ciot-panel supra-ciot-panel--blue">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M8 22h8M12 18v4"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Tudo em um único sistema</h3>
+          <p>
+            Emissão de CT-e, MDF-e e CIOT, além de recursos de gestão do transporte, com informações
+            integradas e disponíveis para consulta.
+          </p>
+        </article>
+      </div>
+
+      <!-- IMAGEM 3 -->
+      <img
+        class="supra-ciot-picture-box"
+        src="https://supratechsistemas.com.br/wp-content/uploads/2026/07/imagem_2026-07-15_104634664.png"
+        alt="Sistema SupraTech preparado para emissão de CIOT"
+        height="650"
+        loading="eager">
+    </div>
+  </section>
+
+  <!-- VIDEO E MANUAL -->
+  <section class="supra-ciot-section supra-ciot-section--soft" id="video-e-manual-ciot">
+    <div class="supra-ciot-container">
+      <span class="supra-ciot-eyebrow">Conteúdo prático</span>
+      <h2 class="supra-ciot-heading">Veja como emitir e consulte o manual</h2>
+
+      <div class="supra-ciot-media-grid">
+        <div>
+          <h3 class="supra-ciot-subheading">Assista ao vídeo</h3>
+          <p>
+            Confira o passo a passo para configurar, gerar e vincular o CIOT utilizando os sistemas SupraTech.
+          </p>
+
+          <div class="supra-ciot-video-wrapper">
+            <!-- ALTERAR: substitua SEU_ID_DO_VIDEO pelo codigo do YouTube.
+                 Exemplo: https://www.youtube.com/watch?v=abc123XYZ
+                 ID = abc123XYZ -->
+            <iframe
+              src="https://www.youtube.com/embed/bnTRNCSkESo?si=SBK7C0hFGhH8zL1Y"
+              title="Como emitir CIOT no sistema SupraTech"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <aside class="supra-ciot-manual-card">
+          <span class="supra-ciot-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </span>
+          <h3 class="supra-ciot-subheading">Manual do CIOT</h3>
+          <p>
+            Disponibilize aqui o manual completo com requisitos, configurações, telas e procedimentos
+            para a emissão do CIOT no sistema SupraTech.
+          </p>
+
+          <div class="supra-ciot-button-row">
+            <!-- ALTERAR: coloque a URL do PDF na Midia do WordPress -->
+            <a
+              class="supra-ciot-button"
+              href="https://SEU-SITE.com.br/wp-content/uploads/2026/07/manual-ciot-supratech.pdf"
+              target="_blank"
+              rel="noopener noreferrer">
+              Abrir manual do CIOT
+            </a>
+
+            <!-- ALTERAR: link da pagina de suporte -->
+            <a
+              class="supra-ciot-button supra-ciot-button--outline"
+              href="https://api.whatsapp.com/send/?phone=553788262135&text=Ol%C3%A1%2C+vim+pelo+Instagram&type=phone_number&app_absent=0">
+              Falar com nosso comercial
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="supra-ciot-section">
+    <div class="supra-ciot-container">
+      <div style="text-align:center;">
+        <span class="supra-ciot-eyebrow">Dúvidas frequentes</span>
+        <h2 class="supra-ciot-heading">Perguntas sobre a emissão do CIOT</h2>
+      </div>
+
+      <div class="supra-ciot-faq">
+        <details>
+          <summary>Todo MDF-e precisa ter CIOT?</summary>
+          <div class="supra-ciot-faq-answer">
+            Não necessariamente. O CIOT deve ser informado quando a operação estiver enquadrada nas
+            situações previstas pela legislação. O sistema deve avaliar os dados da contratação para
+            orientar o preenchimento correto.
+          </div>
+        </details>
+
+        <details>
+          <summary>Posso informar um CIOT emitido em outra plataforma?</summary>
+          <div class="supra-ciot-faq-answer">
+            Sim. Quando o código tiver sido gerado por uma plataforma autorizada, ele poderá ser
+            informado no sistema e vinculado ao MDF-e, conforme o fluxo disponível.
+          </div>
+        </details>
+
+        <details>
+          <summary>O sistema calcula o piso mínimo de frete?</summary>
+          <div class="supra-ciot-faq-answer">
+            O sistema dispõe de recursos para cálculo e validação do piso mínimo nas operações em que
+            essa regra for aplicável. A conferência final depende dos dados corretos da carga, distância,
+            tipo de veículo, eixos e natureza da operação.
+          </div>
+        </details>
+
+        <details>
+          <summary>O CIOT é vinculado automaticamente ao MDF-e?</summary>
+          <div class="supra-ciot-faq-answer">
+            No fluxo integrado, após a geração e validação do código, o sistema pode associá-lo ao MDF-e,
+            reduzindo a necessidade de copiar e colar informações manualmente.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+      <p class="supra-ciot-source">
+        Conteúdo informativo. Para orientações regulatórias, consulte a
+        <a href="https://www.gov.br/antt/pt-br" target="_blank" rel="noopener noreferrer">ANTT</a>
+        e valide o enquadramento específico da operação.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ SCHEMA PARA SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Todo MDF-e precisa ter CIOT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não necessariamente. O CIOT deve ser informado quando a operação estiver enquadrada nas situações previstas pela legislação."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso informar um CIOT emitido em outra plataforma?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Quando o código tiver sido gerado por uma plataforma autorizada, ele poderá ser informado no sistema e vinculado ao MDF-e."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O sistema calcula o piso mínimo de frete?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O sistema dispõe de recursos para cálculo e validação do piso mínimo nas operações em que essa regra for aplicável."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O CIOT é vinculado automaticamente ao MDF-e?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No fluxo integrado, após a geração e validação do código, o sistema pode associá-lo ao MDF-e."
+        }
+      }
+    ]
+  }
+  </script>
+</div>
+</html>
